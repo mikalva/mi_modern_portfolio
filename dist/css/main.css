@@ -6,6 +6,38 @@
 /* Import variable and mixins */
 /* Variables */
 /* Mixins */
+/*
+* All css button
+*/
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  transition: all 0.75s ease-out;
+  /* Burger lines */
+  /* Rotate into x with menu lines */ }
+  .menu-btn .btn-line {
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: #fff;
+    transition: all 0.75s ease-out; }
+  .menu-btn.close {
+    transform: rotate(180deg);
+    background: rgba(0, 0, 0, 0.6); }
+    .menu-btn.close .btn-line {
+      /* Line 1 rotate*/
+      /* Line 2 hide*/
+      /* Line 3 rotate*/ }
+      .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); }
+      .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; }
+      .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); }
+
 /* Global settings */
 * {
   box-sizing: border-box; }
