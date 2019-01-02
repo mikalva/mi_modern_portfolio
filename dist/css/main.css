@@ -1,11 +1,17 @@
 /*
  *
- * SASS for Modern Portfolio
+ * SASS for Modern Portfolio Project
  *
  */
 /* Import variable and mixins */
 /* Variables */
 /* Mixins */
+/* Set text color */
+/* MEDIA QUERY MIXINS */
+/* Smartphone */
+/* tablet, sm latop */
+/* desktop, laptop */
+/* widescreen */
 /*
 * All css button
 */
@@ -15,7 +21,7 @@
   right: 35px;
   top: 35px;
   cursor: pointer;
-  transition: all 0.75s ease-out;
+  transition: all 0.5s ease-out;
   /* Burger lines */
   /* Rotate into x with menu lines */ }
   .menu-btn .btn-line {
@@ -23,7 +29,7 @@
     height: 3px;
     margin: 0 0 5px 0;
     background: #fff;
-    transition: all 0.75s ease-out; }
+    transition: all 0.5s ease-out; }
   .menu-btn.close {
     transform: rotate(180deg);
     background: rgba(0, 0, 0, 0.5); }
@@ -43,7 +49,6 @@
   position: fixed;
   top: 0;
   width: 100%;
-  /*opacity: 0.7;*/
   visibility: hidden;
   /* Add -branding to .menu: .menu-branding */
   /* Branding side */ }
@@ -51,7 +56,6 @@
     visibility: visible; }
   .menu-branding, .menu-nav {
     display: flex;
-    /*background: rgba(darken($primary-color, 5), 0.5);*/
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
@@ -65,15 +69,14 @@
     background: rgba(55, 55, 55, 0.9);
     list-style: none;
     transform: translate3d(0, -100%, 0);
-    transition: all 0.75s ease-out;
+    transition: all 0.5s ease-out;
     /* Slide in from top */ }
     .menu-nav.show {
       transform: translate3d(0, 0, 0); }
   .menu-branding {
-    /*background: $primary-color;*/
     background: rgba(55, 55, 55, 0.5);
     transform: translate3d(0, 100%, 0);
-    transition: all 0.75s ease-out; }
+    transition: all 0.5s ease-out; }
     .menu-branding.show {
       /* Slide from  bottom */
       transform: translate3d(0, 0, 0); }
@@ -85,7 +88,7 @@
       border: solid 3px #eece1a; }
   .menu .nav-item {
     transform: translate3d(600px, 0, 0);
-    transition: all 0.75s ease-out; }
+    transition: all 0.5s ease-out; }
     .menu .nav-item.show {
       /* Slide in from right */
       transform: translate3d(0, 0, 0); }
@@ -98,9 +101,9 @@
     text-transform: uppercase;
     padding: 1rem 0;
     font-weight: 300;
-    color: set-text-color(#444);
+    color: #fff;
     text-decoration: none;
-    transition: all 0.75s ease-out; }
+    transition: all 0.5s ease-out; }
     .menu .nav-link:hover {
       color: #eece1a; }
 
@@ -153,9 +156,9 @@ h1, h2, h3 {
   h1.lg-heading, h2.lg-heading, h3.lg-heading {
     font-size: 6rem; }
   h1.sm-heading, h2.sm-heading, h3.sm-heading {
-    margin-bottom: 2rem;
+    /*margin-bottom: 2rem;*/
     padding: 0.2rem 1rem;
-    background: rgba(119, 119, 119, 0.5); }
+    background: rgba(73, 73, 73, 0.3); }
 
 a {
   color: #fff;
@@ -170,8 +173,10 @@ header {
   color: #eece1a; }
 
 main {
+  margin: auto;
   padding: 4rem;
-  height: 100%;
+  /* Create sticky footer */
+  min-height: calc(100vh - 60px);
   /* Nested elements within main container; more nested within those */
   /* Continue main nested */ }
   main .icons {
@@ -180,9 +185,108 @@ main {
       padding: 0.4rem; }
       main .icons a:hover {
         color: #eece1a;
-        transition: all 0.75s ease-out; }
+        transition: all 0.5s ease-out; }
   main#home {
-    /*Mover element down, hide overflow; no scroll bars*/
+    /*Move element down, hide overflow; no scroll bars*/
+    margin: auto;
     overflow: hidden; }
     main#home h1 {
       margin-top: 20vh; }
+
+/* About page */
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-columns: repeat(3, 1fr); }
+  .about-info .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: #eece1a 3px solid; }
+  .about-info .bio {
+    grid-area: bio;
+    font-size: 1.5rem; }
+  .about-info .job-1 {
+    grid-area: job1; }
+  .about-info .job-2 {
+    grid-area: job2; }
+  .about-info .job-3 {
+    grid-area: job3; }
+  .about-info .job {
+    background: #515151;
+    padding: 0.5rem;
+    border-bottom: #eece1a 5px solid; }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #2b2b2b;
+  color: #fff;
+  height: 60px; }
+
+/* Smartphone */
+@media screen and (max-width: 375px) {
+  main {
+    align-items: center;
+    text-align: center;
+    padding: 0.75rem; }
+    main #home h1, main span {
+      margin-top: 10vh; }
+    main h1.lg-heading, main span {
+      margin-top: 1rem;
+      font-size: 3.5rem; }
+  .projects {
+    grid-template-columns: 1fr; } }
+
+/* tablet & small laptop */
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.menu-nav, div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show, div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px; }
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0); }
+    .menu-branding .portrait {
+      background: url("../img/portrait_small.jpg");
+      width: 150px;
+      height: 150px; }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; }
+  .projects {
+    grid-template-columns: repeat(2, 1fr); }
+  /* About */
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }
+
+/* END @include mediaMd */
+/* Desktop & laptop */
+@media screen and (min-width: 900px) and (max-width: 1170px) {
+  main {
+    align-items: center;
+    text-align: center; }
+  .projects {
+    grid-template-columns: repeat(3, 1fr); } }
+
+/* Widescreen */
+@media screen and (min-width: 1171px) {
+  main {
+    align-items: center;
+    text-align: center; }
+  .projects {
+    grid-template-columns: repeat(4, 1fr); } }

@@ -1,13 +1,12 @@
  /*
  *
- * SASS for Modern Portfolio
+ * SASS for Modern Portfolio Project
  *
  */
 
 /* Import variable and mixins */
 @import 'config';
 @import 'menu';
-
 /* Global settings */
 * {
 	box-sizing: border-box;
@@ -17,7 +16,7 @@ body {
 	/* Call a mixin */
 	@include background; 
 	background: $primary-color;
-	color: #fff;
+	color: set-text-color($primary-color);
 	height: 100%;
 	margin: 0;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,9 +33,9 @@ h1, h2, h3 {
 	}
 
 	&.sm-heading {
-		margin-bottom: 2rem;
+		/*margin-bottom: 2rem;*/
 		padding: 0.2rem 1rem;
-		background: rgba(lighten($primary-color, 20), 0.5);
+		background: rgba(lighten($primary-color, 2), 0.3);
 	}
 }
 
@@ -56,8 +55,10 @@ header {
 }
 
 main {
+	margin: auto;
 	padding: 4rem;
-	height: 100%;
+	/* Create sticky footer */
+	min-height: calc(100vh - 60px);
 	/* Nested elements within main container; more nested within those */
 	.icons {
 		margin-top: 1rem;
@@ -72,10 +73,66 @@ main {
 	}
 	/* Continue main nested */
 	&#home {
-	 /*Mover element down, hide overflow; no scroll bars*/
+	 /*Move element down, hide overflow; no scroll bars*/
+	 	margin: auto;
 		overflow: hidden;
 		h1 {
 		margin-top: 20vh;
 		}
 	}
 }
+
+/* About page */
+.about-info {
+	display: grid;
+	grid-gap: 30px;
+	grid-template-areas: 
+	'bioimage bio bio'
+	'job1 job2 job3';
+	grid-template-columns: repeat(3, 1fr);
+
+	.bio-image {
+ 	grid-area: bioimage;
+ 	margin: auto;
+ 	border-radius: 50%;
+ 	border: $secondary-color 3px solid;
+	 }
+	 .bio {
+	 	grid-area: bio;
+	 	font-size: 1.5rem;
+	 }
+	 .job-1 {
+	 	grid-area: job1;
+	 }
+	 .job-2 {
+	 	grid-area: job2;
+	 }
+	 .job-3 {
+	 	grid-area: job3;
+	 }
+	 .job {
+	 	background: lighten($primary-color, 5);
+	 	padding: 0.5rem;
+	 	border-bottom: $secondary-color 5px solid;
+	 }
+}
+#main-footer {
+	text-align: center;
+	padding: 1rem;
+	background: darken($primary-color, 10);
+	color: set-text-color($primary-color);
+	height: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@import 'mobile';
