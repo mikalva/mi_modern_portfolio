@@ -1,23 +1,34 @@
-/* Smartphone */
-@include mediaSm {
+/*
+* Used to make pages responsive
+*/
+
+/* Widescreen */
+@include mediaXl {
+	/*main {
+		align-items: center;
+		text-align: center;
+	}*/
+	h1, h2 {
+		align-items: center;
+		text-align: center;	
+	}
+	.projects {
+		grid-template-columns: repeat(4, 1fr);
+	}
+} /* END @include mediaXl */
+
+/* Desktop & laptop */
+@include mediaLg {
 	main {
 		align-items: center;
 		text-align: center;
-		padding: 0.75rem;		
-		#home h1, span {
-			margin-top: 10vh;			
-		}
-		h1.lg-heading, span {
-			margin-top: 1rem;
-			font-size: 3.5rem;
-		}
 	}
+	/*.projects {
+		grid-template-columns: repeat(3, 1fr);
+	}*/
+} /* END @include mediaLg */
 
-	.projects {
-		grid-template-columns: 1fr;
-	}
-}
-/* tablet & small laptop */
+/* Tablet & Small Laptop */
 @include mediaMd {
 	main {
 		align-items: center;
@@ -26,6 +37,9 @@
 		.lg-heading {
 			line-height: 1;
 			margin-bottom:	1rem;
+		}
+		div.job, job-1, job-2, job-3 {
+			font-size: 1.7rem;			
 		}
 	}
 
@@ -56,20 +70,6 @@
 		}		
 	}
 
-	.about-info {
-		grid-template-areas:
-			'bioimage'
-			'bio'
-			'job1'
-			'job2'
-			'job3';
-		grid-template-columns: 1fr;
-	}
-
-	.projects {
-		grid-template-columns: repeat(2, 1fr);
-	}
-	
 	/* About */
 	.about-info {
 		grid-template-areas: 
@@ -80,29 +80,42 @@
 		'job3';
 
 		grid-template-columns: 1fr;
+	}	
+	.projects {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 } /* END @include mediaMd */
-/* Desktop & laptop */
-@include mediaLg {
+
+
+/* Smartphone */
+@include mediaSm {
 	main {
 		align-items: center;
 		text-align: center;
+		padding: 0.75rem;		
+		#home h1, span {
+			margin-top: 10vh;			
+		}
+		h1.lg-heading, span {
+			margin-top: 1rem;
+			font-size: 3.5rem;
+		}
 	}
+
 	.projects {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 1fr;
 	}
-}
-/* Widescreen */
-@include mediaXl {
-	main {
-		align-items: center;
-		text-align: center;
-	}
-	.projects {
-		grid-template-columns: repeat(4, 1fr);
-	}
-}
+} /* END @include mediaSm */
+
+
+
+
+
+
+
+
+
 
 
 
