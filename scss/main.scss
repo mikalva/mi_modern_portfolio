@@ -3,17 +3,15 @@
  * SASS for Modern Portfolio Project
  *
  */
-
 /* Import variable and mixins */
 @import 'config';
 @import 'menu';
-/* Global settings */
+/* _________Global settings________ */
 * {
 	box-sizing: border-box;
 }
-
 body {
-	/* Call a mixin */
+	/* mixin */
 	@include background; 
 	background: $primary-color;
 	color: set-text-color($primary-color);
@@ -22,14 +20,12 @@ body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	line-height: 1.5;
 }
-
-/* Headings */
 h1, h2, h3 {
 	margin: 0;
 	font-weight: 400;
 	/* Nested elements within headings */
 	&.lg-heading {
-		font-size: 6rem;
+		font-size: 5rem;
 	}
 
 	&.sm-heading {
@@ -38,22 +34,18 @@ h1, h2, h3 {
 		background: rgba(lighten($primary-color, 2), 0.3);
 	}
 }
-
 a {
 	color: #fff;
 	text-decoration: none;
 }
-
 header {
 	position: fixed;
 	z-index: 2;
 	width: 100%;
 }
-
 .text-secondary {
 	color: $secondary-color;
 }
-
 main {
 	margin: auto;
 	padding: 4rem;
@@ -71,7 +63,6 @@ main {
 			}
 		}
 	}
-	/* Continue main nested */
 	&#home {
 	 /*Move element down, hide overflow; no scroll bars*/
 	 	margin: auto;
@@ -81,8 +72,7 @@ main {
 		}
 	}
 }
-
-/* About page */
+/* ___________About______________ */
 .about-info {
 	display: grid;
 	grid-gap: 30px;
@@ -116,8 +106,34 @@ main {
 	 	border-bottom: $secondary-color 5px solid;
 	 }
 }
+/* ______________Contact____________ */
+.boxes {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-content: center;
+	align-items: center;
+	margin-top: 1rem;
 
-/* Work / Projects */
+	div {
+		font-size: 2rem;
+		border: 3px #fff solid;
+		padding: 1.5rem 2.5rem;
+		margin-bottom: 3rem;
+		@include easeOut;
+
+		&:hover {
+			padding: 0.5rem 1.5rem;
+			background: $secondary-color;
+			color: set-text-color($secondary-color);
+			span {
+				color: set-text-color($secondary-color);
+			}
+		}
+	}
+}
+/* _____________Work & Projects__________________ */
 .projects {
 	display: grid;
 	grid-gap: 0.7rem;
@@ -156,7 +172,6 @@ main {
 	background: lighten($primary-color, 50);
 	color: #333;
 }
-
 #main-footer {
 	text-align: center;
 	padding: 1rem;
@@ -164,16 +179,5 @@ main {
 	color: set-text-color($primary-color);
 	height: 60px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+/* ____________Import mobile after main css is loaded___________ */
 @import 'mobile';
