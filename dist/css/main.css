@@ -126,7 +126,7 @@
   box-sizing: border-box; }
 
 body {
-  /* mixin */
+  /* use mixin */
   background: #444;
   color: #fff;
   height: 100%;

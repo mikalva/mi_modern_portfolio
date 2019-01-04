@@ -11,7 +11,7 @@
 	box-sizing: border-box;
 }
 body {
-	/* mixin */
+	/* use mixin */
 	@include background; 
 	background: $primary-color;
 	color: set-text-color($primary-color);
